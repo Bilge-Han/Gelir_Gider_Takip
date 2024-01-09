@@ -121,9 +121,9 @@ namespace Gelir_Gider_Takip
                     }
                 }
                 double hesap = gelir - gider;
-                //txGelir.Text = gelir.ToString("C2");
-                //txGider.Text = gider.ToString("C2");
-                //txHesap.Text = hesap.ToString("C2");
+                txGelir.Text = gelir.ToString("C2");
+                txGider.Text = gider.ToString("C2");
+                txHesap.Text = hesap.ToString("C2");
             }
             where = " ";
         }
@@ -283,6 +283,17 @@ namespace Gelir_Gider_Takip
         {
             DateTime yillik = _now.AddYears(-1);
 
+        }
+
+        private void bRaporAl_Click(object sender, EventArgs e)
+        {
+            Raporlar.Baslik = "GENEL RAPOR";
+            Raporlar.BaslangicTarih = dtBaslangic.Value.ToShortDateString();
+            Raporlar.BitisTarih = dtBitis.Value.ToShortDateString();
+            Raporlar.ToplamGelir = txGelir.Text;
+            Raporlar.ToplamGider = txGider.Text;
+            Raporlar.HesapOzet = txHesap.Text;
+            Raporlar.RaporSayfasiRaporu(guna2DataGridView1);
         }
     }
 }
