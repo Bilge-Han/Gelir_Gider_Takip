@@ -4,9 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Gelir_Gider_TakipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\PROJE\GELIR_GIDER_TAKIP\GELIR_GIDER_TAKIP\GELIR_GIDER_TAKIP.MDF.dbo.GELIR_GIDER_KAYITLARI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+    <Schema Namespace="Gelir_Gider_TakipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="GELIR_GIDER_KAYITLARI">
           <Key>
             <PropertyRef Name="ggr_ID" />
@@ -19,8 +17,6 @@ warning 6002: The table/view 'E:\PROJE\GELIR_GIDER_TAKIP\GELIR_GIDER_TAKIP\GELIR
           <Property Name="ggr_aciklama" Type="nvarchar(max)" />
           <Property Name="ggr_kayit_tarih" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'E:\PROJE\GELIR_GIDER_TAKIP\GELIR_GIDER_TAKIP\GELIR_GIDER_TAKIP.MDF.dbo.GIDER_TIPLERI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="GIDER_TIPLERI">
           <Key>
             <PropertyRef Name="gdr_ID" />
@@ -30,30 +26,17 @@ warning 6002: The table/view 'E:\PROJE\GELIR_GIDER_TAKIP\GELIR_GIDER_TAKIP\GELIR
           <Property Name="gdr_Gider_Ad" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityContainer Name="Gelir_Gider_TakipModelStoreContainer">
-          <EntitySet Name="GELIR_GIDER_KAYITLARI" EntityType="Self.GELIR_GIDER_KAYITLARI" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [GELIR_GIDER_KAYITLARI].[ggr_ID] AS [ggr_ID], 
-    [GELIR_GIDER_KAYITLARI].[ggr_tarih] AS [ggr_tarih], 
-    [GELIR_GIDER_KAYITLARI].[ggr_tipi] AS [ggr_tipi], 
-    [GELIR_GIDER_KAYITLARI].[ggr_gider_tipi] AS [ggr_gider_tipi], 
-    [GELIR_GIDER_KAYITLARI].[ggr_tutar] AS [ggr_tutar], 
-    [GELIR_GIDER_KAYITLARI].[ggr_aciklama] AS [ggr_aciklama], 
-    [GELIR_GIDER_KAYITLARI].[ggr_kayit_tarih] AS [ggr_kayit_tarih]
-    FROM [dbo].[GELIR_GIDER_KAYITLARI] AS [GELIR_GIDER_KAYITLARI]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="GIDER_TIPLERI" EntityType="Self.GIDER_TIPLERI" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [GIDER_TIPLERI].[gdr_ID] AS [gdr_ID], 
-    [GIDER_TIPLERI].[gdr_Gider_Kod] AS [gdr_Gider_Kod], 
-    [GIDER_TIPLERI].[gdr_Gider_Ad] AS [gdr_Gider_Ad]
-    FROM [dbo].[GIDER_TIPLERI] AS [GIDER_TIPLERI]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="GELIR_GIDER_KAYITLARI" EntityType="Self.GELIR_GIDER_KAYITLARI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIDER_TIPLERI" EntityType="Self.GIDER_TIPLERI" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Gelir_Gider_TakipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Gelir_Gider_TakipEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GELIR_GIDER_KAYITLARI" EntityType="Gelir_Gider_TakipModel.GELIR_GIDER_KAYITLARI" />
+          <EntitySet Name="GIDER_TIPLERI" EntityType="Gelir_Gider_TakipModel.GIDER_TIPLERI" />
+        </EntityContainer>
         <EntityType Name="GELIR_GIDER_KAYITLARI">
           <Key>
             <PropertyRef Name="ggr_ID" />
@@ -74,10 +57,6 @@ warning 6002: The table/view 'E:\PROJE\GELIR_GIDER_TAKIP\GELIR_GIDER_TAKIP\GELIR
           <Property Name="gdr_Gider_Kod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="gdr_Gider_Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityContainer Name="Gelir_Gider_TakipEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="GELIR_GIDER_KAYITLARI" EntityType="Self.GELIR_GIDER_KAYITLARI" />
-          <EntitySet Name="GIDER_TIPLERI" EntityType="Self.GIDER_TIPLERI" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -87,22 +66,22 @@ warning 6002: The table/view 'E:\PROJE\GELIR_GIDER_TAKIP\GELIR_GIDER_TAKIP\GELIR
           <EntitySetMapping Name="GELIR_GIDER_KAYITLARI">
             <EntityTypeMapping TypeName="Gelir_Gider_TakipModel.GELIR_GIDER_KAYITLARI">
               <MappingFragment StoreEntitySet="GELIR_GIDER_KAYITLARI">
-                <ScalarProperty Name="ggr_ID" ColumnName="ggr_ID" />
-                <ScalarProperty Name="ggr_tarih" ColumnName="ggr_tarih" />
-                <ScalarProperty Name="ggr_tipi" ColumnName="ggr_tipi" />
-                <ScalarProperty Name="ggr_gider_tipi" ColumnName="ggr_gider_tipi" />
-                <ScalarProperty Name="ggr_tutar" ColumnName="ggr_tutar" />
-                <ScalarProperty Name="ggr_aciklama" ColumnName="ggr_aciklama" />
                 <ScalarProperty Name="ggr_kayit_tarih" ColumnName="ggr_kayit_tarih" />
+                <ScalarProperty Name="ggr_aciklama" ColumnName="ggr_aciklama" />
+                <ScalarProperty Name="ggr_tutar" ColumnName="ggr_tutar" />
+                <ScalarProperty Name="ggr_gider_tipi" ColumnName="ggr_gider_tipi" />
+                <ScalarProperty Name="ggr_tipi" ColumnName="ggr_tipi" />
+                <ScalarProperty Name="ggr_tarih" ColumnName="ggr_tarih" />
+                <ScalarProperty Name="ggr_ID" ColumnName="ggr_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GIDER_TIPLERI">
             <EntityTypeMapping TypeName="Gelir_Gider_TakipModel.GIDER_TIPLERI">
               <MappingFragment StoreEntitySet="GIDER_TIPLERI">
-                <ScalarProperty Name="gdr_ID" ColumnName="gdr_ID" />
-                <ScalarProperty Name="gdr_Gider_Kod" ColumnName="gdr_Gider_Kod" />
                 <ScalarProperty Name="gdr_Gider_Ad" ColumnName="gdr_Gider_Ad" />
+                <ScalarProperty Name="gdr_Gider_Kod" ColumnName="gdr_Gider_Kod" />
+                <ScalarProperty Name="gdr_ID" ColumnName="gdr_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
