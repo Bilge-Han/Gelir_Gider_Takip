@@ -1,8 +1,4 @@
 ﻿using Microsoft.Reporting.WinForms;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace Gelir_Gider_Takip
@@ -30,7 +26,7 @@ namespace Gelir_Gider_Takip
             rPrm[5] = new ReportParameter("HesapOzet", HesapOzet);
             f.reportViewer1.LocalReport.SetParameters(rPrm);
             f.reportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-            f.reportViewer1.ZoomMode = ZoomMode.PageWidth;
+            f.reportViewer1.ZoomMode = ZoomMode.FullPage;
             f.ShowDialog();
         }
     }

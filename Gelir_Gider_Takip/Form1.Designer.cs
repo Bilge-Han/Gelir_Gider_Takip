@@ -29,10 +29,10 @@ namespace Gelir_Gider_Takip
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.lblTrh = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnTipEkle = new Guna.UI2.WinForms.Guna2Button();
@@ -55,9 +55,6 @@ namespace Gelir_Gider_Takip
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.txHesap = new Gelir_Gider_Takip.tGuna();
-            this.txGider = new Gelir_Gider_Takip.tGuna();
-            this.txGelir = new Gelir_Gider_Takip.tGuna();
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -75,6 +72,9 @@ namespace Gelir_Gider_Takip
             this.dtBaslangic = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.rdListeGider = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rdListeGelir = new Guna.UI2.WinForms.Guna2RadioButton();
+            this.txGelir = new Gelir_Gider_Takip.tGuna();
+            this.txGider = new Gelir_Gider_Takip.tGuna();
+            this.txHesap = new Gelir_Gider_Takip.tGuna();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -385,42 +385,42 @@ namespace Gelir_Gider_Takip
             // guna2DataGridView1
             // 
             this.guna2DataGridView1.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.guna2DataGridView1.BackgroundColor = System.Drawing.Color.Linen;
             this.guna2DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.guna2DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.guna2DataGridView1.ColumnHeadersHeight = 40;
             this.guna2DataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             this.guna2DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.guna2DataGridView1.Location = new System.Drawing.Point(0, 0);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.guna2DataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.guna2DataGridView1.RowTemplate.Height = 20;
@@ -504,93 +504,6 @@ namespace Gelir_Gider_Takip
             this.splitContainer2.Size = new System.Drawing.Size(1006, 601);
             this.splitContainer2.SplitterDistance = 155;
             this.splitContainer2.TabIndex = 2;
-            // 
-            // txHesap
-            // 
-            this.txHesap.AutoRoundedCorners = true;
-            this.txHesap.BackColor = System.Drawing.Color.Transparent;
-            this.txHesap.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txHesap.BorderRadius = 10;
-            this.txHesap.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txHesap.DefaultText = "";
-            this.txHesap.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txHesap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txHesap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txHesap.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txHesap.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txHesap.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.txHesap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txHesap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txHesap.Location = new System.Drawing.Point(552, 76);
-            this.txHesap.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txHesap.Name = "txHesap";
-            this.txHesap.PasswordChar = '\0';
-            this.txHesap.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txHesap.PlaceholderText = "";
-            this.txHesap.SelectedText = "";
-            this.txHesap.ShadowDecoration.BorderRadius = 20;
-            this.txHesap.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txHesap.ShadowDecoration.Enabled = true;
-            this.txHesap.Size = new System.Drawing.Size(115, 22);
-            this.txHesap.TabIndex = 35;
-            // 
-            // txGider
-            // 
-            this.txGider.AutoRoundedCorners = true;
-            this.txGider.BackColor = System.Drawing.Color.Transparent;
-            this.txGider.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txGider.BorderRadius = 10;
-            this.txGider.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txGider.DefaultText = "";
-            this.txGider.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txGider.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txGider.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txGider.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txGider.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txGider.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.txGider.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txGider.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txGider.Location = new System.Drawing.Point(552, 43);
-            this.txGider.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txGider.Name = "txGider";
-            this.txGider.PasswordChar = '\0';
-            this.txGider.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txGider.PlaceholderText = "";
-            this.txGider.SelectedText = "";
-            this.txGider.ShadowDecoration.BorderRadius = 20;
-            this.txGider.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txGider.ShadowDecoration.Enabled = true;
-            this.txGider.Size = new System.Drawing.Size(115, 22);
-            this.txGider.TabIndex = 34;
-            // 
-            // txGelir
-            // 
-            this.txGelir.AutoRoundedCorners = true;
-            this.txGelir.BackColor = System.Drawing.Color.Transparent;
-            this.txGelir.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txGelir.BorderRadius = 10;
-            this.txGelir.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txGelir.DefaultText = "";
-            this.txGelir.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txGelir.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txGelir.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txGelir.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txGelir.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txGelir.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
-            this.txGelir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txGelir.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txGelir.Location = new System.Drawing.Point(552, 14);
-            this.txGelir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.txGelir.Name = "txGelir";
-            this.txGelir.PasswordChar = '\0';
-            this.txGelir.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txGelir.PlaceholderText = "";
-            this.txGelir.SelectedText = "";
-            this.txGelir.ShadowDecoration.BorderRadius = 20;
-            this.txGelir.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
-            this.txGelir.ShadowDecoration.Enabled = true;
-            this.txGelir.Size = new System.Drawing.Size(115, 22);
-            this.txGelir.TabIndex = 33;
             // 
             // guna2HtmlLabel12
             // 
@@ -765,7 +678,6 @@ namespace Gelir_Gider_Takip
             this.dtBitis.Size = new System.Drawing.Size(175, 22);
             this.dtBitis.TabIndex = 22;
             this.dtBitis.Value = new System.DateTime(2024, 1, 8, 18, 22, 12, 0);
-            this.dtBitis.ValueChanged += new System.EventHandler(this.dtBitis_ValueChanged);
             // 
             // guna2HtmlLabel8
             // 
@@ -800,7 +712,6 @@ namespace Gelir_Gider_Takip
             this.rdListeHepsi.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdListeHepsi.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdListeHepsi.UseVisualStyleBackColor = false;
-            this.rdListeHepsi.CheckedChanged += new System.EventHandler(this.rdListeHepsi_CheckedChanged);
             // 
             // dtBaslangic
             // 
@@ -817,7 +728,6 @@ namespace Gelir_Gider_Takip
             this.dtBaslangic.Size = new System.Drawing.Size(175, 22);
             this.dtBaslangic.TabIndex = 20;
             this.dtBaslangic.Value = new System.DateTime(2024, 1, 8, 18, 22, 12, 0);
-            this.dtBaslangic.ValueChanged += new System.EventHandler(this.dtBitis_ValueChanged);
             // 
             // rdListeGider
             // 
@@ -841,7 +751,6 @@ namespace Gelir_Gider_Takip
             this.rdListeGider.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdListeGider.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdListeGider.UseVisualStyleBackColor = false;
-            this.rdListeGider.CheckedChanged += new System.EventHandler(this.rdListeHepsi_CheckedChanged);
             // 
             // rdListeGelir
             // 
@@ -865,7 +774,93 @@ namespace Gelir_Gider_Takip
             this.rdListeGelir.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rdListeGelir.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdListeGelir.UseVisualStyleBackColor = false;
-            this.rdListeGelir.CheckedChanged += new System.EventHandler(this.rdListeHepsi_CheckedChanged);
+            // 
+            // txGelir
+            // 
+            this.txGelir.AutoRoundedCorners = true;
+            this.txGelir.BackColor = System.Drawing.Color.Transparent;
+            this.txGelir.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGelir.BorderRadius = 8;
+            this.txGelir.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txGelir.DefaultText = "";
+            this.txGelir.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txGelir.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txGelir.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txGelir.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txGelir.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txGelir.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.txGelir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txGelir.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txGelir.Location = new System.Drawing.Point(564, 14);
+            this.txGelir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txGelir.Name = "txGelir";
+            this.txGelir.PasswordChar = '\0';
+            this.txGelir.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGelir.PlaceholderText = "";
+            this.txGelir.SelectedText = "";
+            this.txGelir.ShadowDecoration.BorderRadius = 20;
+            this.txGelir.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGelir.ShadowDecoration.Enabled = true;
+            this.txGelir.Size = new System.Drawing.Size(133, 19);
+            this.txGelir.TabIndex = 33;
+            // 
+            // txGider
+            // 
+            this.txGider.AutoRoundedCorners = true;
+            this.txGider.BackColor = System.Drawing.Color.Transparent;
+            this.txGider.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGider.BorderRadius = 8;
+            this.txGider.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txGider.DefaultText = "";
+            this.txGider.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txGider.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txGider.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txGider.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txGider.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txGider.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.txGider.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txGider.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txGider.Location = new System.Drawing.Point(564, 46);
+            this.txGider.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txGider.Name = "txGider";
+            this.txGider.PasswordChar = '\0';
+            this.txGider.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGider.PlaceholderText = "";
+            this.txGider.SelectedText = "";
+            this.txGider.ShadowDecoration.BorderRadius = 20;
+            this.txGider.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGider.ShadowDecoration.Enabled = true;
+            this.txGider.Size = new System.Drawing.Size(133, 19);
+            this.txGider.TabIndex = 34;
+            // 
+            // txHesap
+            // 
+            this.txHesap.AutoRoundedCorners = true;
+            this.txHesap.BackColor = System.Drawing.Color.Transparent;
+            this.txHesap.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txHesap.BorderRadius = 8;
+            this.txHesap.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txHesap.DefaultText = "";
+            this.txHesap.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txHesap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txHesap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txHesap.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txHesap.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txHesap.Font = new System.Drawing.Font("Segoe UI Historic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(1)), true);
+            this.txHesap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txHesap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txHesap.Location = new System.Drawing.Point(564, 76);
+            this.txHesap.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txHesap.Name = "txHesap";
+            this.txHesap.PasswordChar = '\0';
+            this.txHesap.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txHesap.PlaceholderText = "";
+            this.txHesap.SelectedText = "";
+            this.txHesap.ShadowDecoration.BorderRadius = 20;
+            this.txHesap.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txHesap.ShadowDecoration.Enabled = true;
+            this.txHesap.Size = new System.Drawing.Size(133, 19);
+            this.txHesap.TabIndex = 35;
             // 
             // Form1
             // 

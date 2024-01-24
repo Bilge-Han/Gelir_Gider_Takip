@@ -4,13 +4,13 @@
   <ReportSections>
     <ReportSection>
       <Body>
-        <Height>4.40625in</Height>
+        <Height>3.22917in</Height>
         <Style />
       </Body>
-      <Width>12.22917in</Width>
+      <Width>6.82292in</Width>
       <Page>
         <PageHeader>
-          <Height>3.74537cm</Height>
+          <Height>8.24329cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -21,20 +21,18 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value xml:space="preserve">          </Value>
-                      <Style />
-                    </TextRun>
-                    <TextRun>
                       <Value>=Parameters!Baslik.Value</Value>
                       <Style />
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Baslik</rd:DefaultName>
               <Top>0.26141cm</Top>
-              <Left>11.69141cm</Left>
+              <Left>3.47578cm</Left>
               <Height>0.81167cm</Height>
               <Width>7.20958cm</Width>
               <Style>
@@ -302,8 +300,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox8</rd:DefaultName>
-              <Top>2.51946cm</Top>
-              <Left>17.165cm</Left>
+              <Top>3.57751cm</Top>
+              <Left>0.44661cm</Left>
               <Height>0.6cm</Height>
               <Width>3.02917cm</Width>
               <ZIndex>9</ZIndex>
@@ -332,8 +330,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>HesapOzet</rd:DefaultName>
-              <Top>2.51947cm</Top>
-              <Left>20.19417cm</Left>
+              <Top>3.57752cm</Top>
+              <Left>3.65217cm</Left>
               <Height>0.6cm</Height>
               <Width>4.59346cm</Width>
               <ZIndex>10</ZIndex>
@@ -358,6 +356,37 @@
           <Height>2.54cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox13">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Bu Rapor Sadece Bilgilendirme Amaçlıdır.</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox8</rd:DefaultName>
+              <Top>0.54667cm</Top>
+              <Left>5.21907cm</Left>
+              <Height>0.94396cm</Height>
+              <Width>6.86563cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
           <Style>
             <Border>
               <Style>None</Style>
@@ -366,10 +395,10 @@
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>
-        <LeftMargin>2cm</LeftMargin>
-        <RightMargin>2cm</RightMargin>
-        <TopMargin>2cm</TopMargin>
-        <BottomMargin>2cm</BottomMargin>
+        <LeftMargin>1cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>1cm</TopMargin>
+        <BottomMargin>1cm</BottomMargin>
         <ColumnSpacing>0.13cm</ColumnSpacing>
         <Style />
       </Page>
