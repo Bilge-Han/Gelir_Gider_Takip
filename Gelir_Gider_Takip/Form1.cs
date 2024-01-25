@@ -18,12 +18,16 @@ namespace Gelir_Gider_Takip
         private void Form1_Load(object sender, EventArgs e)
         {
             timer_Baslat();
+            rdGelir.Checked = true;
             rdListeHepsi.Checked = true;
             dtBaslangic.Value = DateTime.Now.AddDays(-7);
             dtBitis.Value = DateTime.Now;
             dtTarih.Value = DateTime.Now;
+            txGelir.Text = 0.ToString("C2");
+            txGider.Text = 0.ToString("C2");
+            txHesap.Text = 0.ToString("C2");
             combo_doldur();
-            dgv_Update();
+            Islemler.GridDuzenle(guna2DataGridView1);
         }
         void timer_Baslat()
         {
@@ -42,6 +46,7 @@ namespace Gelir_Gider_Takip
             cmbGiderTipi.DataSource = db.GIDER_TIPLERI.OrderBy(x => x.gdr_Gider_Kod).ToList();
             cmbGiderTipi.DisplayMember = "gdr_Gider_Ad";
             cmbGiderTipi.ValueMember = "gdr_Gider_Kod";
+            cmbGiderTipi.SelectedValue = "Hepsi";
 
             cmbListeTip.DataSource = db.GIDER_TIPLERI.OrderBy(x => x.gdr_Gider_Kod).ToList();
             cmbListeTip.DisplayMember = "gdr_Gider_Ad";
@@ -96,7 +101,6 @@ namespace Gelir_Gider_Takip
                     //        + " )       "
                     //        );
                     #endregion
-                    dgv_Update();
                 }
                 else
                 {
@@ -118,7 +122,6 @@ namespace Gelir_Gider_Takip
                         //       + "     where     ggr_ID = " + Convert.ToInt32(calID.Text) + "                                  "
                         //       );
                         #endregion
-                        dgv_Update();
                 }
             }
             else MessageBox.Show("Lütfen İşlem Tipi Seçiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -236,13 +239,17 @@ namespace Gelir_Gider_Takip
             new GiderTipi_Ekle() { }.ShowDialog();
             combo_doldur();
         }
+
+        private void btnTipCikar_Click(object sender, EventArgs e)
+        {
+            new GiderTipi_Cikar() { }.ShowDialog();
+            combo_doldur();
+        }
         private void btnAra_Click(object sender, EventArgs e)
         {
             guna2DataGridView1.DataSource = null;
             DateTime baslangic = dtBaslangic.Value.AddDays(-1);
             DateTime bitis = dtBitis.Value;
-            string gelir = "Gelir";
-            string gider = "Gider";
             using (var data = new Gelir_Gider_TakipEntities())
             {
                 if (cmbListeTip.Text=="Hepsi")
@@ -260,9 +267,9 @@ namespace Gelir_Gider_Takip
                         double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
                         double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
                         double hesap = toplamGelir - toplamGider;
-                        txGelir.Text = toplamGelir.ToString();
-                        txGider.Text = toplamGider.ToString();
-                        txHesap.Text = hesap.ToString();
+                        txGelir.Text = toplamGelir.ToString("C2");
+                        txGider.Text = toplamGider.ToString("C2");
+                        txHesap.Text = hesap.ToString("C2");
                     }
                     else if (rdListeGider.Checked)
                     {
@@ -277,9 +284,9 @@ namespace Gelir_Gider_Takip
                         double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
                         double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
                         double hesap = toplamGelir - toplamGider;
-                        txGelir.Text = toplamGelir.ToString();
-                        txGider.Text = toplamGider.ToString();
-                        txHesap.Text = hesap.ToString();
+                        txGelir.Text = toplamGelir.ToString("C2");
+                        txGider.Text = toplamGider.ToString("C2");
+                        txHesap.Text = hesap.ToString("C2");
                     }
                     else if (rdListeHepsi.Checked)
                     {
@@ -293,9 +300,9 @@ namespace Gelir_Gider_Takip
                         double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
                         double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
                         double hesap = toplamGelir - toplamGider;
-                        txGelir.Text = toplamGelir.ToString();
-                        txGider.Text = toplamGider.ToString();
-                        txHesap.Text = hesap.ToString();
+                        txGelir.Text = toplamGelir.ToString("C2");
+                        txGider.Text = toplamGider.ToString("C2");
+                        txHesap.Text = hesap.ToString("C2");
                     }
                 }
                 else if (cmbListeTip!=null)
@@ -370,9 +377,9 @@ namespace Gelir_Gider_Takip
             Raporlar.Baslik = "GUNLUK RAPOR";
             Raporlar.BaslangicTarih = baslangic.ToShortDateString();
             Raporlar.BitisTarih = bitis.ToShortDateString();
-            Raporlar.ToplamGelir = toplamGelir.ToString();
-            Raporlar.ToplamGider = toplamGider.ToString();
-            Raporlar.HesapOzet = hesap.ToString();
+            Raporlar.ToplamGelir = toplamGelir.ToString("C2");
+            Raporlar.ToplamGider = toplamGider.ToString("C2");
+            Raporlar.HesapOzet = hesap.ToString("C2");
             Raporlar.RaporSayfasiRaporu(guna2DataGridView1);
         }
         private void bAylikRaporAl_Click(object sender, EventArgs e)
@@ -391,9 +398,9 @@ namespace Gelir_Gider_Takip
             Raporlar.Baslik = "AYLIK RAPOR";
             Raporlar.BaslangicTarih = baslangic.ToShortDateString();
             Raporlar.BitisTarih = bitis.ToShortDateString();
-            Raporlar.ToplamGelir = toplamGelir.ToString();
-            Raporlar.ToplamGider = toplamGider.ToString();
-            Raporlar.HesapOzet = hesap.ToString();
+            Raporlar.ToplamGelir = toplamGelir.ToString("C2");
+            Raporlar.ToplamGider = toplamGider.ToString("C2");
+            Raporlar.HesapOzet = hesap.ToString("C2");
             Raporlar.RaporSayfasiRaporu(guna2DataGridView1);
         }
         private void bYillikRaporAl_Click(object sender, EventArgs e)
@@ -413,9 +420,9 @@ namespace Gelir_Gider_Takip
             Raporlar.Baslik = "YILLIK RAPOR";
             Raporlar.BaslangicTarih = baslangic.ToShortDateString();
             Raporlar.BitisTarih = bitis.ToShortDateString();
-            Raporlar.ToplamGelir = toplamGelir.ToString();
-            Raporlar.ToplamGider = toplamGider.ToString();
-            Raporlar.HesapOzet = hesap.ToString();
+            Raporlar.ToplamGelir = toplamGelir.ToString("C2");
+            Raporlar.ToplamGider = toplamGider.ToString("C2");
+            Raporlar.HesapOzet = hesap.ToString("C2");
             Raporlar.RaporSayfasiRaporu(guna2DataGridView1);
         }
         private void bRaporAl_Click(object sender, EventArgs e)
@@ -423,10 +430,11 @@ namespace Gelir_Gider_Takip
             Raporlar.Baslik = "GENEL RAPOR";
             Raporlar.BaslangicTarih = dtBaslangic.Value.ToShortDateString();
             Raporlar.BitisTarih = dtBitis.Value.ToShortDateString();
-            Raporlar.ToplamGelir = txGelir.Text;
-            Raporlar.ToplamGider = txGider.Text;
-            Raporlar.HesapOzet = txHesap.Text;
+            Raporlar.ToplamGelir = Islemler.DoubleYap(txGelir.Text).ToString("C2");
+            Raporlar.ToplamGider = Islemler.DoubleYap(txGider.Text).ToString("C2");
+            Raporlar.HesapOzet = Islemler.DoubleYap(txHesap.Text).ToString("C2");
             Raporlar.RaporSayfasiRaporu(guna2DataGridView1);
         }
+
     }
 }

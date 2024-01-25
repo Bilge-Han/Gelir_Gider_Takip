@@ -81,5 +81,10 @@ namespace Gelir_Gider_Takip
             //}
             #endregion
         }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

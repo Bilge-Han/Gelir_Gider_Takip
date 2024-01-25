@@ -35,7 +35,6 @@ namespace Gelir_Gider_Takip
             this.txtGiderTipAd = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnPrgKapat = new Guna.UI2.WinForms.Guna2Button();
             this.btnKaydet = new Guna.UI2.WinForms.Guna2CircleButton();
-            this.btnSil = new Guna.UI2.WinForms.Guna2CircleButton();
             this.SuspendLayout();
             // 
             // guna2HtmlLabel2
@@ -43,7 +42,7 @@ namespace Gelir_Gider_Takip
             this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(23, 33);
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(53, 22);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(106, 23);
             this.guna2HtmlLabel2.TabIndex = 6;
@@ -60,7 +59,7 @@ namespace Gelir_Gider_Takip
             this.txtGiderTipKod.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGiderTipKod.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtGiderTipKod.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGiderTipKod.Location = new System.Drawing.Point(138, 33);
+            this.txtGiderTipKod.Location = new System.Drawing.Point(27, 51);
             this.txtGiderTipKod.Name = "txtGiderTipKod";
             this.txtGiderTipKod.PasswordChar = '\0';
             this.txtGiderTipKod.PlaceholderText = "";
@@ -73,7 +72,7 @@ namespace Gelir_Gider_Takip
             this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(23, 76);
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(53, 83);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
             this.guna2HtmlLabel1.Size = new System.Drawing.Size(97, 23);
             this.guna2HtmlLabel1.TabIndex = 8;
@@ -90,7 +89,7 @@ namespace Gelir_Gider_Takip
             this.txtGiderTipAd.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGiderTipAd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtGiderTipAd.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGiderTipAd.Location = new System.Drawing.Point(138, 76);
+            this.txtGiderTipAd.Location = new System.Drawing.Point(27, 112);
             this.txtGiderTipAd.Name = "txtGiderTipAd";
             this.txtGiderTipAd.PasswordChar = '\0';
             this.txtGiderTipAd.PlaceholderText = "";
@@ -109,9 +108,9 @@ namespace Gelir_Gider_Takip
             this.btnPrgKapat.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.btnPrgKapat.Font = new System.Drawing.Font("Segoe UI Black", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btnPrgKapat.ForeColor = System.Drawing.Color.Black;
-            this.btnPrgKapat.Location = new System.Drawing.Point(0, 217);
+            this.btnPrgKapat.Location = new System.Drawing.Point(0, 230);
             this.btnPrgKapat.Name = "btnPrgKapat";
-            this.btnPrgKapat.Size = new System.Drawing.Size(338, 62);
+            this.btnPrgKapat.Size = new System.Drawing.Size(217, 62);
             this.btnPrgKapat.TabIndex = 16;
             this.btnPrgKapat.Text = "Kapat";
             this.btnPrgKapat.Click += new System.EventHandler(this.btnPrgKapat_Click);
@@ -125,7 +124,7 @@ namespace Gelir_Gider_Takip
             this.btnKaydet.FillColor = System.Drawing.Color.YellowGreen;
             this.btnKaydet.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnKaydet.ForeColor = System.Drawing.Color.White;
-            this.btnKaydet.Location = new System.Drawing.Point(180, 131);
+            this.btnKaydet.Location = new System.Drawing.Point(69, 153);
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.btnKaydet.Size = new System.Drawing.Size(71, 72);
@@ -133,38 +132,21 @@ namespace Gelir_Gider_Takip
             this.btnKaydet.Text = "Kaydet";
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
-            // btnSil
-            // 
-            this.btnSil.BackColor = System.Drawing.Color.Transparent;
-            this.btnSil.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSil.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSil.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSil.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSil.FillColor = System.Drawing.Color.DarkRed;
-            this.btnSil.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSil.ForeColor = System.Drawing.Color.White;
-            this.btnSil.Location = new System.Drawing.Point(44, 131);
-            this.btnSil.Name = "btnSil";
-            this.btnSil.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.btnSil.Size = new System.Drawing.Size(71, 72);
-            this.btnSil.TabIndex = 14;
-            this.btnSil.Text = "Sil";
-            // 
             // GiderTipi_Ekle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Linen;
-            this.ClientSize = new System.Drawing.Size(338, 279);
+            this.ClientSize = new System.Drawing.Size(217, 292);
             this.Controls.Add(this.btnPrgKapat);
             this.Controls.Add(this.btnKaydet);
-            this.Controls.Add(this.btnSil);
             this.Controls.Add(this.guna2HtmlLabel1);
             this.Controls.Add(this.txtGiderTipAd);
             this.Controls.Add(this.guna2HtmlLabel2);
             this.Controls.Add(this.txtGiderTipKod);
             this.Name = "GiderTipi_Ekle";
-            this.Text = "GiderTipi_Ekle";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tip Ekle";
             this.Load += new System.EventHandler(this.GiderTipi_Ekle_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -179,6 +161,5 @@ namespace Gelir_Gider_Takip
         private Guna.UI2.WinForms.Guna2TextBox txtGiderTipAd;
         private Guna.UI2.WinForms.Guna2Button btnPrgKapat;
         private Guna.UI2.WinForms.Guna2CircleButton btnKaydet;
-        private Guna.UI2.WinForms.Guna2CircleButton btnSil;
     }
 }

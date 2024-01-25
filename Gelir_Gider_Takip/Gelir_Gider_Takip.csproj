@@ -115,6 +115,12 @@
     <Compile Include="GELIR_GIDER_KAYITLARI.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="GiderTipi_Cikar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GiderTipi_Cikar.Designer.cs">
+      <DependentUpon>GiderTipi_Cikar.cs</DependentUpon>
+    </Compile>
     <Compile Include="GiderTipi_Ekle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fRaporGoster.resx">
       <DependentUpon>fRaporGoster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GiderTipi_Cikar.resx">
+      <DependentUpon>GiderTipi_Cikar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GiderTipi_Ekle.resx">
       <DependentUpon>GiderTipi_Ekle.cs</DependentUpon>

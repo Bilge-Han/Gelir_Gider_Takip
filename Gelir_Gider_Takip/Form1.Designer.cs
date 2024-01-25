@@ -33,12 +33,16 @@ namespace Gelir_Gider_Takip
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.btnTipCikar = new Guna.UI2.WinForms.Guna2Button();
             this.lblTrh = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnTipEkle = new Guna.UI2.WinForms.Guna2Button();
             this.cmbGiderTipi = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.calID = new Gelir_Gider_Takip.TextBoxNumbersOnly();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.calTutar = new Gelir_Gider_Takip.TextBoxNumbersOnly();
             this.btnPrgKapat = new Guna.UI2.WinForms.Guna2Button();
             this.btnKaydet = new Guna.UI2.WinForms.Guna2CircleButton();
             this.btnSil = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -53,6 +57,9 @@ namespace Gelir_Gider_Takip
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.txHesap = new Gelir_Gider_Takip.tGuna();
+            this.txGelir = new Gelir_Gider_Takip.tGuna();
+            this.txGider = new Gelir_Gider_Takip.tGuna();
             this.guna2HtmlLabel12 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -70,11 +77,6 @@ namespace Gelir_Gider_Takip
             this.dtBaslangic = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.rdListeGider = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rdListeGelir = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.calID = new Gelir_Gider_Takip.TextBoxNumbersOnly();
-            this.calTutar = new Gelir_Gider_Takip.TextBoxNumbersOnly();
-            this.txHesap = new Gelir_Gider_Takip.TextBoxNumbersOnly();
-            this.txGider = new Gelir_Gider_Takip.TextBoxNumbersOnly();
-            this.txGelir = new Gelir_Gider_Takip.TextBoxNumbersOnly();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -89,6 +91,7 @@ namespace Gelir_Gider_Takip
             // 
             // guna2GroupBox1
             // 
+            this.guna2GroupBox1.Controls.Add(this.btnTipCikar);
             this.guna2GroupBox1.Controls.Add(this.lblTrh);
             this.guna2GroupBox1.Controls.Add(this.btnTipEkle);
             this.guna2GroupBox1.Controls.Add(this.cmbGiderTipi);
@@ -113,10 +116,28 @@ namespace Gelir_Gider_Takip
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2GroupBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(374, 601);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(428, 601);
             this.guna2GroupBox1.TabIndex = 0;
             this.guna2GroupBox1.Text = "GELİR - GİDER EKLE";
             this.guna2GroupBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnTipCikar
+            // 
+            this.btnTipCikar.AutoRoundedCorners = true;
+            this.btnTipCikar.BorderRadius = 17;
+            this.btnTipCikar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTipCikar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTipCikar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTipCikar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTipCikar.FillColor = System.Drawing.Color.DarkRed;
+            this.btnTipCikar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnTipCikar.ForeColor = System.Drawing.Color.White;
+            this.btnTipCikar.Location = new System.Drawing.Point(361, 167);
+            this.btnTipCikar.Name = "btnTipCikar";
+            this.btnTipCikar.Size = new System.Drawing.Size(54, 36);
+            this.btnTipCikar.TabIndex = 21;
+            this.btnTipCikar.Text = "Çıkar";
+            this.btnTipCikar.Click += new System.EventHandler(this.btnTipCikar_Click);
             // 
             // lblTrh
             // 
@@ -175,6 +196,15 @@ namespace Gelir_Gider_Takip
             this.guna2HtmlLabel7.TabIndex = 17;
             this.guna2HtmlLabel7.Text = "Gelir/Gider Tipi";
             // 
+            // calID
+            // 
+            this.calID.Location = new System.Drawing.Point(127, 58);
+            this.calID.Name = "calID";
+            this.calID.NumbersOnly = true;
+            this.calID.Size = new System.Drawing.Size(90, 23);
+            this.calID.TabIndex = 16;
+            this.calID.Text = "0";
+            // 
             // guna2HtmlLabel6
             // 
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
@@ -185,6 +215,15 @@ namespace Gelir_Gider_Takip
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(69, 23);
             this.guna2HtmlLabel6.TabIndex = 15;
             this.guna2HtmlLabel6.Text = "Kayıt No";
+            // 
+            // calTutar
+            // 
+            this.calTutar.Location = new System.Drawing.Point(127, 221);
+            this.calTutar.Name = "calTutar";
+            this.calTutar.NumbersOnly = true;
+            this.calTutar.Size = new System.Drawing.Size(90, 23);
+            this.calTutar.TabIndex = 14;
+            this.calTutar.Text = "0";
             // 
             // btnPrgKapat
             // 
@@ -199,7 +238,7 @@ namespace Gelir_Gider_Takip
             this.btnPrgKapat.ForeColor = System.Drawing.Color.Black;
             this.btnPrgKapat.Location = new System.Drawing.Point(0, 539);
             this.btnPrgKapat.Name = "btnPrgKapat";
-            this.btnPrgKapat.Size = new System.Drawing.Size(374, 62);
+            this.btnPrgKapat.Size = new System.Drawing.Size(428, 62);
             this.btnPrgKapat.TabIndex = 13;
             this.btnPrgKapat.Text = "Programı Kapat";
             this.btnPrgKapat.Click += new System.EventHandler(this.btnPrgKapat_Click);
@@ -406,7 +445,7 @@ namespace Gelir_Gider_Takip
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.guna2DataGridView1.RowTemplate.Height = 20;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(854, 442);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(847, 442);
             this.guna2DataGridView1.TabIndex = 1;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -445,8 +484,8 @@ namespace Gelir_Gider_Takip
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1232, 601);
-            this.splitContainer1.SplitterDistance = 374;
+            this.splitContainer1.Size = new System.Drawing.Size(1279, 601);
+            this.splitContainer1.SplitterDistance = 428;
             this.splitContainer1.TabIndex = 2;
             // 
             // splitContainer2
@@ -460,8 +499,8 @@ namespace Gelir_Gider_Takip
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.txHesap);
-            this.splitContainer2.Panel1.Controls.Add(this.txGider);
             this.splitContainer2.Panel1.Controls.Add(this.txGelir);
+            this.splitContainer2.Panel1.Controls.Add(this.txGider);
             this.splitContainer2.Panel1.Controls.Add(this.guna2HtmlLabel12);
             this.splitContainer2.Panel1.Controls.Add(this.guna2HtmlLabel10);
             this.splitContainer2.Panel1.Controls.Add(this.guna2HtmlLabel11);
@@ -483,16 +522,106 @@ namespace Gelir_Gider_Takip
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.guna2DataGridView1);
-            this.splitContainer2.Size = new System.Drawing.Size(854, 601);
+            this.splitContainer2.Size = new System.Drawing.Size(847, 601);
             this.splitContainer2.SplitterDistance = 155;
             this.splitContainer2.TabIndex = 2;
+            // 
+            // txHesap
+            // 
+            this.txHesap.Animated = true;
+            this.txHesap.AutoRoundedCorners = true;
+            this.txHesap.BackColor = System.Drawing.Color.Transparent;
+            this.txHesap.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txHesap.BorderRadius = 9;
+            this.txHesap.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txHesap.DefaultText = "";
+            this.txHesap.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txHesap.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txHesap.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txHesap.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txHesap.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txHesap.Font = new System.Drawing.Font("Segoe UI Historic", 10F);
+            this.txHesap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txHesap.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txHesap.Location = new System.Drawing.Point(554, 81);
+            this.txHesap.Name = "txHesap";
+            this.txHesap.PasswordChar = '\0';
+            this.txHesap.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txHesap.PlaceholderText = "";
+            this.txHesap.SelectedText = "";
+            this.txHesap.ShadowDecoration.BorderRadius = 20;
+            this.txHesap.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txHesap.ShadowDecoration.Enabled = true;
+            this.txHesap.Size = new System.Drawing.Size(119, 21);
+            this.txHesap.TabIndex = 37;
+            this.txHesap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txGelir
+            // 
+            this.txGelir.Animated = true;
+            this.txGelir.AutoRoundedCorners = true;
+            this.txGelir.BackColor = System.Drawing.Color.Transparent;
+            this.txGelir.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGelir.BorderRadius = 9;
+            this.txGelir.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txGelir.DefaultText = "";
+            this.txGelir.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txGelir.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txGelir.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txGelir.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txGelir.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txGelir.Font = new System.Drawing.Font("Segoe UI Historic", 10F);
+            this.txGelir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txGelir.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txGelir.Location = new System.Drawing.Point(555, 21);
+            this.txGelir.Name = "txGelir";
+            this.txGelir.PasswordChar = '\0';
+            this.txGelir.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGelir.PlaceholderText = "";
+            this.txGelir.SelectedText = "";
+            this.txGelir.ShadowDecoration.BorderRadius = 20;
+            this.txGelir.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGelir.ShadowDecoration.Enabled = true;
+            this.txGelir.Size = new System.Drawing.Size(118, 21);
+            this.txGelir.TabIndex = 36;
+            this.txGelir.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txGider
+            // 
+            this.txGider.Animated = true;
+            this.txGider.AutoRoundedCorners = true;
+            this.txGider.BackColor = System.Drawing.Color.Transparent;
+            this.txGider.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGider.BorderRadius = 9;
+            this.txGider.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txGider.DefaultText = "";
+            this.txGider.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txGider.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txGider.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txGider.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txGider.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txGider.Font = new System.Drawing.Font("Segoe UI Historic", 10F);
+            this.txGider.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txGider.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txGider.Location = new System.Drawing.Point(554, 52);
+            this.txGider.Name = "txGider";
+            this.txGider.PasswordChar = '\0';
+            this.txGider.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGider.PlaceholderText = "";
+            this.txGider.SelectedText = "";
+            this.txGider.ShadowDecoration.BorderRadius = 20;
+            this.txGider.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(117)))), ((int)(((byte)(117)))));
+            this.txGider.ShadowDecoration.Enabled = true;
+            this.txGider.Size = new System.Drawing.Size(119, 21);
+            this.txGider.TabIndex = 35;
+            this.txGider.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // guna2HtmlLabel12
             // 
             this.guna2HtmlLabel12.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel12.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel12.Location = new System.Drawing.Point(461, 76);
+            this.guna2HtmlLabel12.Location = new System.Drawing.Point(461, 81);
             this.guna2HtmlLabel12.Name = "guna2HtmlLabel12";
             this.guna2HtmlLabel12.Size = new System.Drawing.Size(77, 19);
             this.guna2HtmlLabel12.TabIndex = 32;
@@ -503,7 +632,7 @@ namespace Gelir_Gider_Takip
             this.guna2HtmlLabel10.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel10.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel10.Location = new System.Drawing.Point(461, 46);
+            this.guna2HtmlLabel10.Location = new System.Drawing.Point(461, 50);
             this.guna2HtmlLabel10.Name = "guna2HtmlLabel10";
             this.guna2HtmlLabel10.Size = new System.Drawing.Size(87, 19);
             this.guna2HtmlLabel10.TabIndex = 30;
@@ -514,7 +643,7 @@ namespace Gelir_Gider_Takip
             this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
             this.guna2HtmlLabel11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.Black;
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(461, 14);
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(461, 20);
             this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
             this.guna2HtmlLabel11.Size = new System.Drawing.Size(83, 19);
             this.guna2HtmlLabel11.TabIndex = 29;
@@ -757,66 +886,16 @@ namespace Gelir_Gider_Takip
             this.rdListeGelir.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdListeGelir.UseVisualStyleBackColor = false;
             // 
-            // calID
-            // 
-            this.calID.Location = new System.Drawing.Point(127, 58);
-            this.calID.Name = "calID";
-            this.calID.NumbersOnly = true;
-            this.calID.Size = new System.Drawing.Size(90, 23);
-            this.calID.TabIndex = 16;
-            this.calID.Text = "0";
-            // 
-            // calTutar
-            // 
-            this.calTutar.Location = new System.Drawing.Point(127, 221);
-            this.calTutar.Name = "calTutar";
-            this.calTutar.NumbersOnly = true;
-            this.calTutar.Size = new System.Drawing.Size(90, 23);
-            this.calTutar.TabIndex = 14;
-            this.calTutar.Text = "0";
-            // 
-            // txHesap
-            // 
-            this.txHesap.Location = new System.Drawing.Point(575, 76);
-            this.txHesap.Name = "txHesap";
-            this.txHesap.NumbersOnly = true;
-            this.txHesap.ReadOnly = true;
-            this.txHesap.Size = new System.Drawing.Size(90, 20);
-            this.txHesap.TabIndex = 34;
-            this.txHesap.Text = "0";
-            this.txHesap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txGider
-            // 
-            this.txGider.Location = new System.Drawing.Point(575, 45);
-            this.txGider.Name = "txGider";
-            this.txGider.NumbersOnly = true;
-            this.txGider.ReadOnly = true;
-            this.txGider.Size = new System.Drawing.Size(90, 20);
-            this.txGider.TabIndex = 33;
-            this.txGider.Text = "0";
-            this.txGider.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txGelir
-            // 
-            this.txGelir.Location = new System.Drawing.Point(575, 14);
-            this.txGelir.Name = "txGelir";
-            this.txGelir.NumbersOnly = true;
-            this.txGelir.ReadOnly = true;
-            this.txGelir.Size = new System.Drawing.Size(90, 20);
-            this.txGelir.TabIndex = 21;
-            this.txGelir.Text = "0";
-            this.txGelir.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 601);
+            this.ClientSize = new System.Drawing.Size(1279, 601);
             this.Controls.Add(this.splitContainer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Gelir - Gider Takip";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
@@ -875,9 +954,10 @@ namespace Gelir_Gider_Takip
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel12;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
-        private TextBoxNumbersOnly txHesap;
-        private TextBoxNumbersOnly txGider;
-        private TextBoxNumbersOnly txGelir;
+        private tGuna txHesap;
+        private tGuna txGelir;
+        private tGuna txGider;
+        private Guna.UI2.WinForms.Guna2Button btnTipCikar;
     }
 }
 

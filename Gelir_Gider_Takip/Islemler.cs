@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,13 @@ namespace Gelir_Gider_Takip
 {
     class Islemler
     {
+        public static double DoubleYap(string deger)
+        {
+            double result;
+            double.TryParse(deger, NumberStyles.Currency, CultureInfo.CurrentUICulture.NumberFormat, out result);
+            return Math.Round(result, 2);
+        }
+
         public static void GridDuzenle(DataGridView dgv)
         {
             if (dgv.Columns.Count > 0)
