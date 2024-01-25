@@ -38,9 +38,7 @@ namespace Gelir_Gider_Takip
             this.btnTipEkle = new Guna.UI2.WinForms.Guna2Button();
             this.cmbGiderTipi = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel7 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.calID = new Gelir_Gider_Takip.TextBoxNumbersOnly();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.calTutar = new Gelir_Gider_Takip.TextBoxNumbersOnly();
             this.btnPrgKapat = new Guna.UI2.WinForms.Guna2Button();
             this.btnKaydet = new Guna.UI2.WinForms.Guna2CircleButton();
             this.btnSil = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -72,9 +70,11 @@ namespace Gelir_Gider_Takip
             this.dtBaslangic = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.rdListeGider = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rdListeGelir = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.txGelir = new Gelir_Gider_Takip.TextBoxNumbersOnly();
-            this.txGider = new Gelir_Gider_Takip.TextBoxNumbersOnly();
+            this.calID = new Gelir_Gider_Takip.TextBoxNumbersOnly();
+            this.calTutar = new Gelir_Gider_Takip.TextBoxNumbersOnly();
             this.txHesap = new Gelir_Gider_Takip.TextBoxNumbersOnly();
+            this.txGider = new Gelir_Gider_Takip.TextBoxNumbersOnly();
+            this.txGelir = new Gelir_Gider_Takip.TextBoxNumbersOnly();
             this.guna2GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -175,15 +175,6 @@ namespace Gelir_Gider_Takip
             this.guna2HtmlLabel7.TabIndex = 17;
             this.guna2HtmlLabel7.Text = "Gelir/Gider Tipi";
             // 
-            // calID
-            // 
-            this.calID.Location = new System.Drawing.Point(127, 58);
-            this.calID.Name = "calID";
-            this.calID.NumbersOnly = true;
-            this.calID.Size = new System.Drawing.Size(90, 23);
-            this.calID.TabIndex = 16;
-            this.calID.Text = "0";
-            // 
             // guna2HtmlLabel6
             // 
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
@@ -194,15 +185,6 @@ namespace Gelir_Gider_Takip
             this.guna2HtmlLabel6.Size = new System.Drawing.Size(69, 23);
             this.guna2HtmlLabel6.TabIndex = 15;
             this.guna2HtmlLabel6.Text = "Kayıt No";
-            // 
-            // calTutar
-            // 
-            this.calTutar.Location = new System.Drawing.Point(127, 221);
-            this.calTutar.Name = "calTutar";
-            this.calTutar.NumbersOnly = true;
-            this.calTutar.Size = new System.Drawing.Size(90, 23);
-            this.calTutar.TabIndex = 14;
-            this.calTutar.Text = "0";
             // 
             // btnPrgKapat
             // 
@@ -323,7 +305,7 @@ namespace Gelir_Gider_Takip
             this.dtTarih.ShadowDecoration.Color = System.Drawing.Color.BlanchedAlmond;
             this.dtTarih.Size = new System.Drawing.Size(170, 30);
             this.dtTarih.TabIndex = 5;
-            this.dtTarih.Value = new System.DateTime(2024, 1, 8, 18, 22, 12, 0);
+            this.dtTarih.Value = new System.DateTime(2024, 1, 25, 0, 0, 0, 0);
             // 
             // guna2HtmlLabel1
             // 
@@ -424,7 +406,7 @@ namespace Gelir_Gider_Takip
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.guna2DataGridView1.RowTemplate.Height = 20;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1006, 442);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(854, 442);
             this.guna2DataGridView1.TabIndex = 1;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -463,7 +445,7 @@ namespace Gelir_Gider_Takip
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(1384, 601);
+            this.splitContainer1.Size = new System.Drawing.Size(1232, 601);
             this.splitContainer1.SplitterDistance = 374;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -501,7 +483,7 @@ namespace Gelir_Gider_Takip
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.guna2DataGridView1);
-            this.splitContainer2.Size = new System.Drawing.Size(1006, 601);
+            this.splitContainer2.Size = new System.Drawing.Size(854, 601);
             this.splitContainer2.SplitterDistance = 155;
             this.splitContainer2.TabIndex = 2;
             // 
@@ -549,7 +531,7 @@ namespace Gelir_Gider_Takip
             this.bRaporAl.FillColor = System.Drawing.Color.Olive;
             this.bRaporAl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bRaporAl.ForeColor = System.Drawing.Color.White;
-            this.bRaporAl.Location = new System.Drawing.Point(868, 104);
+            this.bRaporAl.Location = new System.Drawing.Point(706, 106);
             this.bRaporAl.Name = "bRaporAl";
             this.bRaporAl.Size = new System.Drawing.Size(126, 37);
             this.bRaporAl.TabIndex = 27;
@@ -567,7 +549,7 @@ namespace Gelir_Gider_Takip
             this.bYillikRaporAl.FillColor = System.Drawing.Color.Olive;
             this.bYillikRaporAl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bYillikRaporAl.ForeColor = System.Drawing.Color.White;
-            this.bYillikRaporAl.Location = new System.Drawing.Point(868, 73);
+            this.bYillikRaporAl.Location = new System.Drawing.Point(706, 75);
             this.bYillikRaporAl.Name = "bYillikRaporAl";
             this.bYillikRaporAl.Size = new System.Drawing.Size(126, 25);
             this.bYillikRaporAl.TabIndex = 26;
@@ -585,7 +567,7 @@ namespace Gelir_Gider_Takip
             this.bAylikRaporAl.FillColor = System.Drawing.Color.Olive;
             this.bAylikRaporAl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bAylikRaporAl.ForeColor = System.Drawing.Color.White;
-            this.bAylikRaporAl.Location = new System.Drawing.Point(868, 43);
+            this.bAylikRaporAl.Location = new System.Drawing.Point(706, 45);
             this.bAylikRaporAl.Name = "bAylikRaporAl";
             this.bAylikRaporAl.Size = new System.Drawing.Size(126, 24);
             this.bAylikRaporAl.TabIndex = 25;
@@ -603,7 +585,7 @@ namespace Gelir_Gider_Takip
             this.bGunlukRaporAl.FillColor = System.Drawing.Color.Olive;
             this.bGunlukRaporAl.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bGunlukRaporAl.ForeColor = System.Drawing.Color.White;
-            this.bGunlukRaporAl.Location = new System.Drawing.Point(868, 12);
+            this.bGunlukRaporAl.Location = new System.Drawing.Point(706, 14);
             this.bGunlukRaporAl.Name = "bGunlukRaporAl";
             this.bGunlukRaporAl.Size = new System.Drawing.Size(126, 25);
             this.bGunlukRaporAl.TabIndex = 21;
@@ -775,27 +757,23 @@ namespace Gelir_Gider_Takip
             this.rdListeGelir.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rdListeGelir.UseVisualStyleBackColor = false;
             // 
-            // txGelir
+            // calID
             // 
-            this.txGelir.Location = new System.Drawing.Point(575, 14);
-            this.txGelir.Name = "txGelir";
-            this.txGelir.NumbersOnly = true;
-            this.txGelir.ReadOnly = true;
-            this.txGelir.Size = new System.Drawing.Size(90, 20);
-            this.txGelir.TabIndex = 21;
-            this.txGelir.Text = "0";
-            this.txGelir.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.calID.Location = new System.Drawing.Point(127, 58);
+            this.calID.Name = "calID";
+            this.calID.NumbersOnly = true;
+            this.calID.Size = new System.Drawing.Size(90, 23);
+            this.calID.TabIndex = 16;
+            this.calID.Text = "0";
             // 
-            // txGider
+            // calTutar
             // 
-            this.txGider.Location = new System.Drawing.Point(575, 45);
-            this.txGider.Name = "txGider";
-            this.txGider.NumbersOnly = true;
-            this.txGider.ReadOnly = true;
-            this.txGider.Size = new System.Drawing.Size(90, 20);
-            this.txGider.TabIndex = 33;
-            this.txGider.Text = "0";
-            this.txGider.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.calTutar.Location = new System.Drawing.Point(127, 221);
+            this.calTutar.Name = "calTutar";
+            this.calTutar.NumbersOnly = true;
+            this.calTutar.Size = new System.Drawing.Size(90, 23);
+            this.calTutar.TabIndex = 14;
+            this.calTutar.Text = "0";
             // 
             // txHesap
             // 
@@ -808,11 +786,33 @@ namespace Gelir_Gider_Takip
             this.txHesap.Text = "0";
             this.txHesap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // txGider
+            // 
+            this.txGider.Location = new System.Drawing.Point(575, 45);
+            this.txGider.Name = "txGider";
+            this.txGider.NumbersOnly = true;
+            this.txGider.ReadOnly = true;
+            this.txGider.Size = new System.Drawing.Size(90, 20);
+            this.txGider.TabIndex = 33;
+            this.txGider.Text = "0";
+            this.txGider.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txGelir
+            // 
+            this.txGelir.Location = new System.Drawing.Point(575, 14);
+            this.txGelir.Name = "txGelir";
+            this.txGelir.NumbersOnly = true;
+            this.txGelir.ReadOnly = true;
+            this.txGelir.Size = new System.Drawing.Size(90, 20);
+            this.txGelir.TabIndex = 21;
+            this.txGelir.Text = "0";
+            this.txGelir.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 601);
+            this.ClientSize = new System.Drawing.Size(1232, 601);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="87c209922ef044eeaa959acf8d0156c7" Name="Diagram1">
-        <EntityTypeShape EntityType="Gelir_Gider_TakipModel.GELIR_GIDER_KAYITLARI" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="Gelir_Gider_TakipModel.GIDER_TIPLERI" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Gelir_Gider_TakipModel.GELIR_GIDER_KAYITLARI" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="Gelir_Gider_TakipModel.GIDER_TIPLERI" Width="1.5" PointX="2.125" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

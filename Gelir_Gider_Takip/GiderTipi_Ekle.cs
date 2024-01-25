@@ -16,17 +16,14 @@ namespace Gelir_Gider_Takip
         {
             InitializeComponent();
         }
-
         private void GiderTipi_Ekle_Load(object sender, EventArgs e)
         {
 
         }
-
         private void btnPrgKapat_Click(object sender, EventArgs e)
         {
             Close();
         }
-
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             using (var db = new Gelir_Gider_TakipEntities())
@@ -34,9 +31,11 @@ namespace Gelir_Gider_Takip
                 int control = db.GIDER_TIPLERI.Where(x=>x.gdr_Gider_Kod==txtGiderTipKod.Text).Count();
                 if (control==0)
                 {
-                    GIDER_TIPLERI gt = new GIDER_TIPLERI();
-                    gt.gdr_Gider_Kod = txtGiderTipKod.Text;
-                    gt.gdr_Gider_Ad = txtGiderTipAd.Text;
+                    GIDER_TIPLERI gt = new GIDER_TIPLERI
+                    {
+                        gdr_Gider_Kod = txtGiderTipKod.Text,
+                        gdr_Gider_Ad = txtGiderTipAd.Text
+                    };
                     db.GIDER_TIPLERI.Add(gt);
                     db.SaveChanges();
                     MessageBox.Show("Kayıt Başarılı");

@@ -17,9 +17,13 @@ namespace Gelir_Gider_Takip
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            dgv_Update();
-            combo_doldur();
             timer_Baslat();
+            rdListeHepsi.Checked = true;
+            dtBaslangic.Value = DateTime.Now.AddDays(-7);
+            dtBitis.Value = DateTime.Now;
+            dtTarih.Value = DateTime.Now;
+            combo_doldur();
+            dgv_Update();
         }
         void timer_Baslat()
         {
@@ -35,7 +39,6 @@ namespace Gelir_Gider_Takip
         }
         void combo_doldur()
         {
-
             cmbGiderTipi.DataSource = db.GIDER_TIPLERI.OrderBy(x => x.gdr_Gider_Kod).ToList();
             cmbGiderTipi.DisplayMember = "gdr_Gider_Ad";
             cmbGiderTipi.ValueMember = "gdr_Gider_Kod";
@@ -43,7 +46,7 @@ namespace Gelir_Gider_Takip
             cmbListeTip.DataSource = db.GIDER_TIPLERI.OrderBy(x => x.gdr_Gider_Kod).ToList();
             cmbListeTip.DisplayMember = "gdr_Gider_Ad";
             cmbListeTip.ValueMember = "gdr_Gider_Kod";
-
+            cmbListeTip.SelectedValue = "Hepsi";
         }
         string tip()
         {
@@ -58,25 +61,22 @@ namespace Gelir_Gider_Takip
             }
             return tip;
         }
-
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             if (tip() != "")
             {
-                if (Convert.ToInt32(calID.Text) == 0)
+                int id = Convert.ToInt32(calID.Text);
+                if (!db.GELIR_GIDER_KAYITLARI.Any(x => x.ggr_ID == id))
                 {
-                    using (var db = new Gelir_Gider_TakipEntities())
-                    {
-                        GELIR_GIDER_KAYITLARI ggk = new GELIR_GIDER_KAYITLARI();
-                        ggk.ggr_tarih = Convert.ToDateTime(dtTarih.Value);
-                        ggk.ggr_tipi = tip();
-                        ggk.ggr_gider_tipi = cmbGiderTipi.SelectedValue.ToString();
-                        ggk.ggr_tutar = Convert.ToDouble(calTutar.Text.ToString().Replace(",", "."));
-                        ggk.ggr_aciklama = txtAciklama.Text;
-                        ggk.ggr_kayit_tarih = DateTime.Now;
-                        db.GELIR_GIDER_KAYITLARI.Add(ggk);
-                        db.SaveChanges();
-                    }
+                    GELIR_GIDER_KAYITLARI ggk = new GELIR_GIDER_KAYITLARI();
+                    ggk.ggr_tarih = Convert.ToDateTime(dtTarih.Value);
+                    ggk.ggr_tipi = tip();
+                    ggk.ggr_gider_tipi = cmbGiderTipi.SelectedValue.ToString();
+                    ggk.ggr_tutar = Convert.ToDouble(calTutar.Text.ToString().Replace(",", "."));
+                    ggk.ggr_aciklama = txtAciklama.Text;
+                    ggk.ggr_kayit_tarih = DateTime.Now;
+                    db.GELIR_GIDER_KAYITLARI.Add(ggk);
+                    db.SaveChanges();
                     #region sql
                     //glb.sql.Command(""
                     //        + "    INSERT INTO[dbo].[GELIR_GIDER_KAYITLARI]     "
@@ -100,75 +100,64 @@ namespace Gelir_Gider_Takip
                 }
                 else
                 {
-                    int id = Convert.ToInt32(calID.Text);
-                    using (var db = new Gelir_Gider_TakipEntities())
-                    {
                         var ggk = db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_ID == id).FirstOrDefault();
-                        ggk.ggr_tarih = Convert.ToDateTime(dtTarih.Value);
+                        ggk.ggr_tarih = DateTime.Now;
                         ggk.ggr_tipi = tip();
                         ggk.ggr_gider_tipi = cmbGiderTipi.SelectedValue.ToString();
                         ggk.ggr_tutar = Convert.ToDouble(calTutar.Text.ToString().Replace(",", "."));
                         ggk.ggr_aciklama = txtAciklama.Text;
-                        db.SaveChanges();
-                    }
-                    #region sql
-                    //glb.sql.Command(""
-                    //       + "    update [dbo].[GELIR_GIDER_KAYITLARI]   set  "
-                    //       + "            [ggr_tarih]        = '" + Convert.ToDateTime(dtTarih.Value).ToString("yyyyMMdd") + "'   " //< ggr_tarih, datetime,>              "                  "
-                    //       + "           ,[ggr_tipi]         = '" + tip() + "'   " //< ggr_tipi, nvarchar(50),>           "                  "
-                    //       + "           ,[ggr_gider_tipi]   = '" + cmbGiderTipi.SelectedValue.ToString() + "'   " //< ggr_gider_tipi, nvarchar(50),>     "                  "
-                    //       + "           ,[ggr_tutar]        = '" + Convert.ToDouble(calTutar.Text).ToString().Replace(",", ".") + "'   " //< ggr_tutar, float,>                 "                  "
-                    //       + "           ,[ggr_aciklama]     = '" + txtAciklama.Text + "'   " //< ggr_aciklama, nvarchar(max),>      "                  "
-                    //       + "     where     ggr_ID = " + Convert.ToInt32(calID.Text) + "                                  "
-                    //       );
-                    #endregion
-                    dgv_Update();
+                        db.SaveChanges(); 
+                        #region sql
+                        //glb.sql.Command(""
+                        //       + "    update [dbo].[GELIR_GIDER_KAYITLARI]   set  "
+                        //       + "            [ggr_tarih]        = '" + Convert.ToDateTime(dtTarih.Value).ToString("yyyyMMdd") + "'   " //< ggr_tarih, datetime,>              "                  "
+                        //       + "           ,[ggr_tipi]         = '" + tip() + "'   " //< ggr_tipi, nvarchar(50),>           "                  "
+                        //       + "           ,[ggr_gider_tipi]   = '" + cmbGiderTipi.SelectedValue.ToString() + "'   " //< ggr_gider_tipi, nvarchar(50),>     "                  "
+                        //       + "           ,[ggr_tutar]        = '" + Convert.ToDouble(calTutar.Text).ToString().Replace(",", ".") + "'   " //< ggr_tutar, float,>                 "                  "
+                        //       + "           ,[ggr_aciklama]     = '" + txtAciklama.Text + "'   " //< ggr_aciklama, nvarchar(max),>      "                  "
+                        //       + "     where     ggr_ID = " + Convert.ToInt32(calID.Text) + "                                  "
+                        //       );
+                        #endregion
+                        dgv_Update();
                 }
             }
             else MessageBox.Show("Lütfen İşlem Tipi Seçiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
         void dgv_Update()
         {
-            DateTime baslangic = DateTime.Parse(dtBaslangic.Value.ToShortDateString());
-            DateTime bitis = DateTime.Parse(dtBitis.Value.ToShortDateString());
-            string gelir = "Gelir";
-            string gider = "Gider";
-            using (var db = new Gelir_Gider_TakipEntities())
-            {
-                if (rdListeHepsi.Checked)
-                {
-                    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis && x.ggr_gider_tipi == cmbListeTip.Text).OrderByDescending(x => x.ggr_tarih).Load();
-                    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
-                    guna2DataGridView1.DataSource = ggk;
+            //guna2DataGridView1.DataSource = null;
+            //DateTime baslangic = DateTime.Parse(dtBaslangic.Value.ToShortDateString());
+            //DateTime bitis = DateTime.Parse(dtBitis.Value.ToShortDateString());
+            //string gelir = "Gelir";
+            //string gider = "Gider";
+            //if (rdListeHepsi.Checked)
+            //{
+            //    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis&& x.ggr_gider_tipi == cmbListeTip.Text).OrderByDescending(x => x.ggr_tarih).Load();
+            //    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
+            //    guna2DataGridView1.DataSource = ggk;
 
-                    double glr = Convert.ToDouble(ggk.Where(x => x.ggr_tipi == gelir).Sum(x => x.ggr_tutar));
-                    double gdr = Convert.ToDouble(ggk.Where(x => x.ggr_tipi == gider).Sum(x => x.ggr_tutar));
-                    txGelir.Text =glr.ToString("C2");
-                    txGider.Text = gdr.ToString("C2");
-                    double dglr = glr-gdr;
-                    txHesap.Text = dglr.ToString("C2");
-                }
-                else if (rdListeGelir.Checked)
-                {
-                    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis && x.ggr_gider_tipi == cmbListeTip.Text && x.ggr_tipi == gelir).OrderByDescending(x => x.ggr_tarih).Load();
-                    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
-                    guna2DataGridView1.DataSource = ggk;
+            //    txGelir.Text = ggk.Where(x => x.ggr_tipi == gelir).Sum(x => x.ggr_tutar).ToString();
+            //    txGider.Text = ggk.Where(x => x.ggr_tipi == gider).Sum(x => x.ggr_tutar).ToString();
+            //}
+            //else if (rdListeGelir.Checked)
+            //{
+            //    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis  && x.ggr_gider_tipi == cmbListeTip.Text && x.ggr_tipi == gelir).OrderByDescending(x => x.ggr_tarih).Load();
+            //    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
+            //    guna2DataGridView1.DataSource = ggk;
 
-                    txGelir.Text = Convert.ToDouble(ggk.Where(x => x.ggr_tipi == gelir).Sum(x => x.ggr_tutar)).ToString("C2");
-                    txGider.Text = Convert.ToDouble(ggk.Where(x => x.ggr_tipi == gider).Sum(x => x.ggr_tutar)).ToString("C2");
-                    txHesap.Text = Convert.ToDouble(Convert.ToDouble(txGelir.Text) - Convert.ToDouble(txGider.Text)).ToString("C2");
-                }
-                else if (rdListeGider.Checked)
-                {
-                    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis && x.ggr_gider_tipi == cmbListeTip.Text && x.ggr_tipi == gider).OrderByDescending(x => x.ggr_tarih).Load();
-                    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
-                    guna2DataGridView1.DataSource = ggk;
+            //    txGelir.Text = ggk.Where(x => x.ggr_tipi == gelir).Sum(x => x.ggr_tutar).ToString();
+            //    txGider.Text = ggk.Where(x => x.ggr_tipi == gider).Sum(x => x.ggr_tutar).ToString();
+            //}
+            //else if (rdListeGider.Checked)
+            //{
+            //    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis
+            //    && x.ggr_gider_tipi == cmbListeTip.Text && x.ggr_tipi == gider).OrderByDescending(x => x.ggr_tarih).Load();
+            //    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
+            //    guna2DataGridView1.DataSource = ggk;
 
-                    txGelir.Text = Convert.ToDouble(ggk.Where(x => x.ggr_tipi == gelir).Sum(x => x.ggr_tutar)).ToString("C2");
-                    txGider.Text = Convert.ToDouble(ggk.Where(x => x.ggr_tipi == gider).Sum(x => x.ggr_tutar)).ToString("C2");
-                    txHesap.Text = Convert.ToDouble(Convert.ToDouble(txGelir.Text) - Convert.ToDouble(txGider.Text)).ToString("C2");
-                }
-            }
+            //    txGelir.Text = ggk.Where(x => x.ggr_tipi == gelir).Sum(x => x.ggr_tutar).ToString();
+            //    txGider.Text = ggk.Where(x => x.ggr_tipi == gider).Sum(x => x.ggr_tutar).ToString();
+            //}
             #region eski
             //guna2DataGridView1.DataSource = glb.sql.Table("select * from dbo.fn_GelirGiderListe(0) " + where);
             //if (guna2DataGridView1.Rows.Count > 0)
@@ -198,16 +187,15 @@ namespace Gelir_Gider_Takip
         {
             Application.Exit();
         }
-
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.guna2DataGridView1.Rows[e.RowIndex];
-                calID.Text = row.Cells["KAYITNO"].Value.ToString();
-                calTutar.Text = row.Cells["Tutar"].Value.ToString();
-                txtAciklama.Text = row.Cells["Açıklama"].Value.ToString();
-                string gelir_gider = row.Cells["Tipi"].Value.ToString();
+                calID.Text = row.Cells[0].Value.ToString();
+                calTutar.Text = row.Cells[4].Value.ToString();
+                txtAciklama.Text = row.Cells[5].Value.ToString();
+                string gelir_gider = row.Cells[2].Value.ToString();
 
                 switch (gelir_gider)
                 {
@@ -221,13 +209,11 @@ namespace Gelir_Gider_Takip
                         rdGider.Checked = false;
                         rdGelir.Checked = false;
                         break;
-
                 }
-                dtTarih.Text = row.Cells["Tarih"].Value.ToString();
-                cmbGiderTipi.SelectedValue = row.Cells["Gider Tip Kod"].Value.ToString();
+                dtTarih.Text = row.Cells[1].Value.ToString();
+                cmbGiderTipi.SelectedValue = row.Cells[3].Value.ToString();
             }
         }
-
         private void btnSil_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(calID.Text);
@@ -240,11 +226,11 @@ namespace Gelir_Gider_Takip
                     db.SaveChanges();
                     dgv_Update();
                 }
+
                 //glb.sql.Command("delete from  [dbo].[GELIR_GIDER_KAYITLARI]    where     ggr_ID = " + Convert.ToInt32(calID.Text) + "     ");
             }
         }
         //string where = " ";
-
         private void btnTipEkle_Click(object sender, EventArgs e)
         {
             new GiderTipi_Ekle() { }.ShowDialog();
@@ -252,89 +238,186 @@ namespace Gelir_Gider_Takip
         }
         private void btnAra_Click(object sender, EventArgs e)
         {
-            DateTime baslangic = Convert.ToDateTime(dtBaslangic.Value);
-            DateTime bitis = Convert.ToDateTime(dtBitis.Value).AddDays(1);
+            guna2DataGridView1.DataSource = null;
+            DateTime baslangic = dtBaslangic.Value.AddDays(-1);
+            DateTime bitis = dtBitis.Value;
             string gelir = "Gelir";
             string gider = "Gider";
-            if (cmbListeTip.Text == "Hepsi")
+            using (var data = new Gelir_Gider_TakipEntities())
             {
-                if (rdListeGelir.Checked == true)
+                if (cmbListeTip.Text=="Hepsi")
                 {
-                    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis&&x.ggr_tipi==gelir).OrderByDescending(x => x.ggr_tarih).Load();
-                    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
-                    guna2DataGridView1.DataSource = ggk;
+                    if (rdListeGelir.Checked)
+                    {
+                        var liste = db.GELIR_GIDER_KAYITLARI
+                          .Where(k => k.ggr_tarih >= baslangic && k.ggr_tarih <= bitis
+                                  && k.ggr_tipi == "Gelir")
+                          .ToList();
+                        guna2DataGridView1.DataSource = liste;
 
-                    //where = " where Tipi = 'Gelir' and ( '" + baslangic.ToString("yyyyMMdd") + "' <= [Tarih] and  [Tarih] < '" + bitis.ToString("yyyyMMdd") + "') ";
+                        var gelirler = liste.Where(k => k.ggr_tipi == "Gelir").ToList();
+                        var giderler = liste.Where(k => k.ggr_tipi == "Gider").ToList();
+                        double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
+                        double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
+                        double hesap = toplamGelir - toplamGider;
+                        txGelir.Text = toplamGelir.ToString();
+                        txGider.Text = toplamGider.ToString();
+                        txHesap.Text = hesap.ToString();
+                    }
+                    else if (rdListeGider.Checked)
+                    {
+                        var liste = db.GELIR_GIDER_KAYITLARI
+                          .Where(k => k.ggr_tarih >= baslangic && k.ggr_tarih <= bitis
+                                  && k.ggr_tipi == "Gider")
+                          .ToList();
+                        guna2DataGridView1.DataSource = liste;
+
+                        var gelirler = liste.Where(k => k.ggr_tipi == "Gelir").ToList();
+                        var giderler = liste.Where(k => k.ggr_tipi == "Gider").ToList();
+                        double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
+                        double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
+                        double hesap = toplamGelir - toplamGider;
+                        txGelir.Text = toplamGelir.ToString();
+                        txGider.Text = toplamGider.ToString();
+                        txHesap.Text = hesap.ToString();
+                    }
+                    else if (rdListeHepsi.Checked)
+                    {
+                        var liste = db.GELIR_GIDER_KAYITLARI
+                          .Where(k => k.ggr_tarih >= baslangic && k.ggr_tarih <= bitis)
+                          .ToList();
+                        guna2DataGridView1.DataSource = liste;
+
+                        var gelirler = liste.Where(k => k.ggr_tipi == "Gelir").ToList();
+                        var giderler = liste.Where(k => k.ggr_tipi == "Gider").ToList();
+                        double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
+                        double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
+                        double hesap = toplamGelir - toplamGider;
+                        txGelir.Text = toplamGelir.ToString();
+                        txGider.Text = toplamGider.ToString();
+                        txHesap.Text = hesap.ToString();
+                    }
                 }
-                if (rdListeGider.Checked == true)
+                else if (cmbListeTip!=null)
                 {
-                    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis && x.ggr_tipi == gider).OrderByDescending(x => x.ggr_tarih).Load();
-                    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
-                    guna2DataGridView1.DataSource = ggk;
+                    if (rdListeGelir.Checked)
+                    {
+                        var liste = db.GELIR_GIDER_KAYITLARI
+                          .Where(k => k.ggr_tarih >= baslangic && k.ggr_tarih <= bitis
+                                  && k.ggr_tipi == "Gelir"&&k.ggr_gider_tipi==cmbListeTip.SelectedValue.ToString())
+                          .ToList();
+                        guna2DataGridView1.DataSource = liste;
 
-                    //where = " where Tipi = 'Gider' and ( '" + baslangic.ToString("yyyy-MM-dd") + "' <= [Tarih] and  [Tarih] < '" + bitis.ToString("yyyy-MM-dd") + "') ";
-                }
-                if (rdListeHepsi.Checked == true)
-                {
-                    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis).OrderByDescending(x => x.ggr_tarih).Load();
-                    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
-                    guna2DataGridView1.DataSource = ggk;
+                        var gelirler = liste.Where(k => k.ggr_tipi == "Gelir").ToList();
+                        var giderler = liste.Where(k => k.ggr_tipi == "Gider").ToList();
+                        double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
+                        double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
+                        double hesap = toplamGelir - toplamGider;
+                        txGelir.Text = toplamGelir.ToString("C2");
+                        txGider.Text = toplamGider.ToString("C2");
+                        txHesap.Text = hesap.ToString("C2");
+                    }
+                    else if (rdListeGider.Checked)
+                    {
+                        var liste = db.GELIR_GIDER_KAYITLARI
+                          .Where(k => k.ggr_tarih >= baslangic && k.ggr_tarih <= bitis
+                                  && k.ggr_tipi == "Gider" && k.ggr_gider_tipi == cmbListeTip.SelectedValue.ToString())
+                          .ToList();
+                        guna2DataGridView1.DataSource = liste;
 
-                    //where = " where ( '" + baslangic.ToString("yyyy-MM-dd") + " '<= [Tarih] and  [Tarih] < '" + bitis.ToString("yyyy-MM-dd") + "')";
+                        var gelirler = liste.Where(k => k.ggr_tipi == "Gelir").ToList();
+                        var giderler = liste.Where(k => k.ggr_tipi == "Gider").ToList();
+                        double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
+                        double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
+                        double hesap = toplamGelir - toplamGider;
+                        txGelir.Text = toplamGelir.ToString("C2");
+                        txGider.Text = toplamGider.ToString("C2");
+                        txHesap.Text = hesap.ToString("C2");
+                    }
+                    else if (rdListeHepsi.Checked)
+                    {
+                        var liste = db.GELIR_GIDER_KAYITLARI
+                          .Where(k => k.ggr_tarih >= baslangic && k.ggr_tarih <= bitis && k.ggr_gider_tipi == cmbListeTip.SelectedValue.ToString())
+                          .ToList();
+                        guna2DataGridView1.DataSource = liste;
+
+                        var gelirler = liste.Where(k => k.ggr_tipi == "Gelir").ToList();
+                        var giderler = liste.Where(k => k.ggr_tipi == "Gider").ToList();
+                        double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
+                        double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
+                        double hesap = toplamGelir - toplamGider;
+                        txGelir.Text = toplamGelir.ToString("C2");
+                        txGider.Text = toplamGider.ToString("C2");
+                        txHesap.Text = hesap.ToString("C2");
+                    }
                 }
+                Islemler.GridDuzenle(guna2DataGridView1);
             }
-            else if (cmbListeTip.Text != "")
-            {
-                if (rdListeGelir.Checked == true)
-                {
-                    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis&&x.ggr_gider_tipi==cmbListeTip.Text && x.ggr_tipi == gelir).OrderByDescending(x => x.ggr_tarih).Load();
-                    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
-                    guna2DataGridView1.DataSource = ggk;
-
-                    //where = " where Tipi = 'Gelir' and ( '" + baslangic.ToString("yyyyMMdd") + "' <= [Tarih] and  [Tarih] < '" + bitis.ToString("yyyyMMdd") + "') and ([Gider Tipi] = '" + cmbListeTip.Text + "')";
-                }
-                if (rdListeGider.Checked == true)
-                {
-                    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis && x.ggr_gider_tipi == cmbListeTip.Text && x.ggr_tipi == gider).OrderByDescending(x => x.ggr_tarih).Load();
-                    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
-                    guna2DataGridView1.DataSource = ggk;
-
-                    //where = " where Tipi = 'Gider' and ( '" + baslangic.ToString("yyyy-MM-dd") + "' <= [Tarih] and  [Tarih] < '" + bitis.ToString("yyyy-MM-dd") + "') and ([Gider Tipi] = '" + cmbListeTip.Text + "')";
-                }
-                if (rdListeHepsi.Checked == true)
-                {
-                    db.GELIR_GIDER_KAYITLARI.Where(x => x.ggr_tarih >= baslangic && x.ggr_tarih <= bitis && x.ggr_gider_tipi == cmbListeTip.Text).OrderByDescending(x => x.ggr_tarih).Load();
-                    var ggk = db.GELIR_GIDER_KAYITLARI.Local.ToBindingList();
-                    guna2DataGridView1.DataSource = ggk;
-
-                    //where = " where ( '" + baslangic.ToString("yyyy-MM-dd") + " '<= [Tarih] and  [Tarih] < '" + bitis.ToString("yyyy-MM-dd") + "')and ([Gider Tipi] = '" + cmbListeTip.Text + "')";
-                }
-            }
-            dgv_Update();
         }
-        private void BelliRapor()
-        {
-
-        }
-
         private void bGunlukRaporAl_Click(object sender, EventArgs e)
         {
-            DateTime gunluk = _now.AddDays(-1);
-
+            DateTime baslangic = _now.AddDays(-1);
+            DateTime bitis = _now;
+            var liste = db.GELIR_GIDER_KAYITLARI
+                          .Where(k => k.ggr_tarih >= baslangic && k.ggr_tarih <= bitis)
+                          .ToList();
+            guna2DataGridView1.DataSource = liste;
+            var gelirler = liste.Where(k => k.ggr_tipi == "Gelir").ToList();
+            var giderler = liste.Where(k => k.ggr_tipi == "Gider").ToList();
+            double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
+            double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
+            double hesap = toplamGelir - toplamGider;
+            Raporlar.Baslik = "GUNLUK RAPOR";
+            Raporlar.BaslangicTarih = baslangic.ToShortDateString();
+            Raporlar.BitisTarih = bitis.ToShortDateString();
+            Raporlar.ToplamGelir = toplamGelir.ToString();
+            Raporlar.ToplamGider = toplamGider.ToString();
+            Raporlar.HesapOzet = hesap.ToString();
+            Raporlar.RaporSayfasiRaporu(guna2DataGridView1);
         }
-
         private void bAylikRaporAl_Click(object sender, EventArgs e)
         {
-            DateTime aylik = _now.AddMonths(-1);
-
+            DateTime baslangic = _now.AddMonths(-1);
+            DateTime bitis = _now;
+            var liste = db.GELIR_GIDER_KAYITLARI
+                          .Where(k => k.ggr_tarih >= baslangic && k.ggr_tarih <= bitis)
+                          .ToList();
+            guna2DataGridView1.DataSource = liste;
+            var gelirler = liste.Where(k => k.ggr_tipi == "Gelir").ToList();
+            var giderler = liste.Where(k => k.ggr_tipi == "Gider").ToList();
+            double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
+            double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
+            double hesap = toplamGelir - toplamGider;
+            Raporlar.Baslik = "AYLIK RAPOR";
+            Raporlar.BaslangicTarih = baslangic.ToShortDateString();
+            Raporlar.BitisTarih = bitis.ToShortDateString();
+            Raporlar.ToplamGelir = toplamGelir.ToString();
+            Raporlar.ToplamGider = toplamGider.ToString();
+            Raporlar.HesapOzet = hesap.ToString();
+            Raporlar.RaporSayfasiRaporu(guna2DataGridView1);
         }
-
         private void bYillikRaporAl_Click(object sender, EventArgs e)
         {
-            DateTime yillik = _now.AddYears(-1);
 
+            DateTime baslangic = _now.AddYears(-1);
+            DateTime bitis = _now;
+            var liste = db.GELIR_GIDER_KAYITLARI
+                          .Where(k => k.ggr_tarih >= baslangic && k.ggr_tarih <= bitis)
+                          .ToList();
+            guna2DataGridView1.DataSource = liste;
+            var gelirler = liste.Where(k => k.ggr_tipi == "Gelir").ToList();
+            var giderler = liste.Where(k => k.ggr_tipi == "Gider").ToList();
+            double toplamGelir = (double)gelirler.Sum(k => k.ggr_tutar);
+            double toplamGider = (double)giderler.Sum(k => k.ggr_tutar);
+            double hesap = toplamGelir - toplamGider;
+            Raporlar.Baslik = "YILLIK RAPOR";
+            Raporlar.BaslangicTarih = baslangic.ToShortDateString();
+            Raporlar.BitisTarih = bitis.ToShortDateString();
+            Raporlar.ToplamGelir = toplamGelir.ToString();
+            Raporlar.ToplamGider = toplamGider.ToString();
+            Raporlar.HesapOzet = hesap.ToString();
+            Raporlar.RaporSayfasiRaporu(guna2DataGridView1);
         }
-
         private void bRaporAl_Click(object sender, EventArgs e)
         {
             Raporlar.Baslik = "GENEL RAPOR";
@@ -342,7 +425,7 @@ namespace Gelir_Gider_Takip
             Raporlar.BitisTarih = dtBitis.Value.ToShortDateString();
             Raporlar.ToplamGelir = txGelir.Text;
             Raporlar.ToplamGider = txGider.Text;
-            Raporlar.HesapOzet = "DENEME";
+            Raporlar.HesapOzet = txHesap.Text;
             Raporlar.RaporSayfasiRaporu(guna2DataGridView1);
         }
     }
